@@ -49,6 +49,8 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         }
         return cell
     }//end of data source method
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
 
