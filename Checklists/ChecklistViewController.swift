@@ -9,12 +9,12 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {//Changed regular UIViewController to this
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,8 +29,8 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //dequeue.....ifier makes new copy of cell as needed or recycles an existing cell no longer in use
         let cell = tableView.dequeueReusableCellWithIdentifier("ChecklistItem") as! UITableViewCell
-//        print(indexPath.row)
-//        print(indexPath.section)
+        //        print(indexPath.row)
+        //        print(indexPath.section)
         let label = cell.viewWithTag(1000) as! UILabel
         if indexPath.row % 5 == 0{
             label.text = "Walk the dog"
@@ -49,7 +49,16 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         }
         return cell
     }//end of data source method
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    
+    /*method to toggle the chekmark */
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath){// gives the cell at the indexPath
+            if cell.accessoryType == .None{
+                cell.accessoryType = .Checkmark
+            }else {
+                cell.accessoryType = .None
+            }
+        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
