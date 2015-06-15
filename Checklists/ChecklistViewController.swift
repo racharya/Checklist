@@ -16,11 +16,10 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
     var row3text = "Soccer practice"
     var row4text = "Eat ice cream"
     var row0checked = false
-    var row1checked = false
-    var row2checked = false
+    var row1checked = true
+    var row2checked = true
     var row3checked = false
-    var row4checked = false
-    
+    var row4checked = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,31 +69,23 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
             var isChecked = false
             if indexPath.row == 0{
                 row0checked = !row0checked
-                isChecked = row0checked
                 
             } else if indexPath.row == 1{
                 row1checked = !row1checked
-                isChecked = row1checked
                 
             } else if indexPath.row == 2 {
                 row2checked = !row2checked
-                isChecked = row2checked
+               
                 
             } else if indexPath.row == 3 {
                 row3checked = !row3checked
-                isChecked = row3checked
+               
                 
             } else if indexPath.row == 4 {
                 row4checked = !row4checked
-                isChecked = row4checked
             }
-            if isChecked {
-                cell.accessoryType = .Checkmark
-            } else {
-                cell.accessoryType = .None
-            }
+        configureCheckmarkForCell(cell, indexPath: indexPath)
         }
-        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
