@@ -10,6 +10,12 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {//Changed regular UIViewController to this
     
+    var row0text = "Walk the dog"
+    var row1text = "Brush teeth"
+    var row2text = "Learn iOS development"
+    var row3text = "Soccer practice"
+    var row4text = "Eat ice cream"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,7 +29,7 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
     /* Methods for UITableView's data source - link betwn data and the table view */
     // this method simply tells table view about the number(return statement value) of row of in the screen
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 100 // number of rows to be displayed
+        return 5 // number of rows to be displayed
     }
     // this method is called to obtain the cell for the row
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -33,19 +39,19 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         //        print(indexPath.section)
         let label = cell.viewWithTag(1000) as! UILabel
         if indexPath.row % 5 == 0{
-            label.text = "Walk the dog"
+            label.text = row0text
         }
         if indexPath.row % 5 == 1{
-            label.text = "Brush my teeth"
+            label.text = row1text
         }
         if indexPath.row % 5 == 2{
-            label.text = "Learn iOS development"
+            label.text = row2text
         }
         if indexPath.row % 5 == 3{
-            label.text = "Soccer Practice"
+            label.text = row3text
         }
         if indexPath.row % 5 == 4{
-            label.text = "Eat ice cream"
+            label.text = row4text
         }
         return cell
     }//end of data source method
