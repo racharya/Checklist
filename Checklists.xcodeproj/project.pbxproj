@@ -13,6 +13,7 @@
 		8021A5AA1B28C96500481134 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8021A5A91B28C96500481134 /* Images.xcassets */; };
 		8021A5AD1B28C96500481134 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8021A5AB1B28C96500481134 /* LaunchScreen.xib */; };
 		8021A5B91B28C96500481134 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021A5B81B28C96500481134 /* ChecklistsTests.swift */; };
+		8046C8811B2F7401008792DA /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046C8801B2F7401008792DA /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		8021A5B21B28C96500481134 /* ChecklistsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklistsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8021A5B71B28C96500481134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8021A5B81B28C96500481134 /* ChecklistsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsTests.swift; sourceTree = "<group>"; };
+		8046C8801B2F7401008792DA /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				8021A5A91B28C96500481134 /* Images.xcassets */,
 				8021A5AB1B28C96500481134 /* LaunchScreen.xib */,
 				8021A5A01B28C96500481134 /* Supporting Files */,
+				8046C8801B2F7401008792DA /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8021A5A51B28C96500481134 /* ChecklistViewController.swift in Sources */,
+				8046C8811B2F7401008792DA /* ChecklistItem.swift in Sources */,
 				8021A5A31B28C96500481134 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				8021A5BE1B28C96500481134 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8021A5BF1B28C96500481134 /* Build configuration list for PBXNativeTarget "ChecklistsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				8021A5C11B28C96500481134 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
