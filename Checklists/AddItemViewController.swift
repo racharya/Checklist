@@ -25,4 +25,10 @@ class AddItemViewController: UITableViewController {
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         return nil // nil means no value | nothing found | don't do anything etc
     }
+    
+    //automatically allows keyboard to appear once the Add Item screen opens
+    override func viewWillAppear(animated: Bool){
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
 }
