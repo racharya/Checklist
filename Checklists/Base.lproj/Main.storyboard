@@ -89,6 +89,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="AZZ-QI-3qi" id="pcn-nv-DeJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOM-Ei-PMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
