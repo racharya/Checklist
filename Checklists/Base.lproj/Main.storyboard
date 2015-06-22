@@ -56,7 +56,7 @@
                         <sections>
                             <tableViewSection id="i6N-nJ-XFN">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MGu-Lf-MhB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="MGu-Lf-MhB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGu-Lf-MhB" id="lqk-XL-9do">
                                             <autoresizingMask key="autoresizingMask"/>
