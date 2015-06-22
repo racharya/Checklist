@@ -93,7 +93,7 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         if let cell = tableView.cellForRowAtIndexPath(indexPath){// gives the cell at the indexPath
             let item = items[indexPath.row]
             item.toggleChecked()
-                        
+            
             configureCheckmarkForCell(cell, withChecklistItem: item)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -101,7 +101,7 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         
-       // let item = items[indexPath.row]
+        // let item = items[indexPath.row]
         if item.checked{
             cell.accessoryType = .Checkmark
         } else {
@@ -112,6 +112,18 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem){
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    @IBAction func addItem() {
+        let newRowIndex = items.count // index for new row
+        let item = ChecklistItem()// new checklist item created
+        item.text = "I am a new row"
+        item.checked = true
+        items.append(item) // new checklist item added into the checklist array
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0) //creating NSIndexPath object to point to new row
+        let indexPaths = [indexPath]// temporary array to hold just one index path item
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)// telling table view about the new row
     }
 }
 
