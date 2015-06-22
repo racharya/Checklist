@@ -17,4 +17,9 @@ class AddItemViewController: UITableViewController {
     @IBAction func done(){
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // ? says tells swift that you can return nil from this method. Only allowed if ? behind that return type
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        return nil // nil means no value | nothing found | don't do anything etc
+    }
 }
