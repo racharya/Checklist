@@ -88,6 +88,15 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         return cell
     }//end of data source method
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        //1
+        items.removeAtIndex(indexPath.row) // removing the item from data model
+        
+        //2
+        let indexPaths = [indexPath]
+        tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)// removing from tabel view
+    }
+    
     /*method to toggle the chekmark */
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath){// gives the cell at the indexPath
