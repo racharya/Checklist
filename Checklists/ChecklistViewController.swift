@@ -142,6 +142,19 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
         dismissViewControllerAnimated(true, completion: nil)
+    }//end of implementing delegate methods
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //1
+        if segue.identifier == "AddItem" {
+            //2
+            let navigationController = segue.destinationViewController as! UINavigationController
+            //3
+            let controller = navigationController.topViewController as! AddItemViewController
+            //4
+            controller.delegate = self
+            
+        }
     }
 }
 
