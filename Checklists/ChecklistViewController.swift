@@ -9,7 +9,7 @@
 import UIKit
 //import ChecklistItem
 
-class ChecklistViewController: UITableViewController {//Changed regular UIViewController to this
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {//Changed regular UIViewController to this
     // This declares that items will hold an array of ChecklistItems objects
     // but it does not actually create that array.
     // At this point, items does not have a value yet.
@@ -133,6 +133,15 @@ class ChecklistViewController: UITableViewController {//Changed regular UIViewCo
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0) //creating NSIndexPath object to point to new row
         let indexPaths = [indexPath]// temporary array to hold just one index path item
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)// telling table view about the new row
+    }
+    
+    //implementing delegatge methods
+    func addItemViewControllerDidCancel(controller: AddItemViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

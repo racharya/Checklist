@@ -18,9 +18,11 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    weak var delegate: AddItemViewControllerDelegate?
     
     @IBAction func cancel(){
-        dismissViewControllerAnimated(true, completion: nil)
+        delegate?.addItemViewControllerDidCancel(self) // does not send message if delegate is nil
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -33,8 +35,13 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done(){
-        println("Contents of the text field: \(textField.text)")
-        dismissViewControllerAnimated(true, completion: nil)
+//        println("Contents of the text field: \(textField.text)")
+//        dismissViewControllerAnimated(true, completion: nil)
+        let item = ChecklistItem()
+        item.text = textField.text
+        item.checked = false
+        
+        delegate?.addItemViewController(self, didFinishAddingItem: item)//doesnot send message if delegate is nil
     }
     
     // ? says tells swift that you can return nil from this method. Only allowed if ? behind that return type
