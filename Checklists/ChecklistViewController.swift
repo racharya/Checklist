@@ -46,12 +46,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         row4item.text = "Eat ice cream"
         row4item.checked = true
         items.append(row4item)
-        
-        let row5item = ChecklistItem()
-        row5item.text = "Read Lean In"
-        row5item.checked = true
-        items.append(row5item)
-        
+       
         super.init(coder: aDecoder)
     }
     
