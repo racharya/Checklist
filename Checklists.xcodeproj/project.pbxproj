@@ -14,7 +14,7 @@
 		8021A5AD1B28C96500481134 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8021A5AB1B28C96500481134 /* LaunchScreen.xib */; };
 		8021A5B91B28C96500481134 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021A5B81B28C96500481134 /* ChecklistsTests.swift */; };
 		8046C8811B2F7401008792DA /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046C8801B2F7401008792DA /* ChecklistItem.swift */; };
-		80B10D511B389C08004A4542 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B10D501B389C08004A4542 /* AddItemViewController.swift */; };
+		80B10D511B389C08004A4542 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B10D501B389C08004A4542 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 		8021A59D1B28C96500481134 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8021A5A11B28C96500481134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8021A5A21B28C96500481134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8021A5A41B28C96500481134 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		8021A5A41B28C96500481134 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ChecklistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8021A5A71B28C96500481134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8021A5A91B28C96500481134 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8021A5AC1B28C96500481134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		8021A5B71B28C96500481134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8021A5B81B28C96500481134 /* ChecklistsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsTests.swift; sourceTree = "<group>"; };
 		8046C8801B2F7401008792DA /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		80B10D501B389C08004A4542 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		80B10D501B389C08004A4542 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				8021A5AB1B28C96500481134 /* LaunchScreen.xib */,
 				8021A5A01B28C96500481134 /* Supporting Files */,
 				8046C8801B2F7401008792DA /* ChecklistItem.swift */,
-				80B10D501B389C08004A4542 /* AddItemViewController.swift */,
+				80B10D501B389C08004A4542 /* ItemDetailViewController.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8021A5A51B28C96500481134 /* ChecklistViewController.swift in Sources */,
-				80B10D511B389C08004A4542 /* AddItemViewController.swift in Sources */,
+				80B10D511B389C08004A4542 /* ItemDetailViewController.swift in Sources */,
 				8046C8811B2F7401008792DA /* ChecklistItem.swift in Sources */,
 				8021A5A31B28C96500481134 /* AppDelegate.swift in Sources */,
 			);

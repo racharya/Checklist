@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  Checklists
 //
 //  Created by Rachana Acharya on 6/22/15.
@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(controller: AddItemViewController)
-    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
-    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem)
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem)
     
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: ChecklistItem?
     
     @IBAction func cancel(){
-        delegate?.addItemViewControllerDidCancel(self) // does not send message if delegate is nil
+        delegate?.itemDetailViewControllerDidCancel(self) // does not send message if delegate is nil
         //dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -41,13 +41,13 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         //        dismissViewControllerAnimated(true, completion: nil)
         if let item = itemToEdit {// unwrapping an optional
             item.text = textField.text
-            delegate?.addItemViewController(self, didFinishEditingItem: item)
+            delegate?.itemDetailViewController(self, didFinishEditingItem: item)
             
         } else {
             let item = ChecklistItem()
             item.text = textField.text
             item.checked = false
-            delegate?.addItemViewController(self, didFinishAddingItem: item)//doesnot send message if delegate is nil
+            delegate?.itemDetailViewController(self, didFinishAddingItem: item)//doesnot send message if delegate is nil
         }
     }
     
