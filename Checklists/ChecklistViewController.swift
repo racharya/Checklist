@@ -122,25 +122,18 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
-    
-    @IBAction func addItem() {
-        let newRowIndex = items.count // index for new row
-        let item = ChecklistItem()// new checklist item created
-        item.text = "I am a new row"
-        item.checked = true
-        items.append(item) // new checklist item added into the checklist array
-        
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0) //creating NSIndexPath object to point to new row
-        let indexPaths = [indexPath]// temporary array to hold just one index path item
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)// telling table view about the new row
-    }
-    
+  
     //implementing delegatge methods
     func addItemViewControllerDidCancel(controller: AddItemViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+        let newRowIndex = items.count
+        items.append(item)
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)// creating NSIndexPath object to point to new row
+        let indexPaths = [indexPath]//temporary array to hold just one inded path item
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic) //telling table view about this new row
         dismissViewControllerAnimated(true, completion: nil)
     }//end of implementing delegate methods
     
