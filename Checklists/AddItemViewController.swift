@@ -11,6 +11,7 @@ import UIKit
 protocol AddItemViewControllerDelegate: class {
     func addItemViewControllerDidCancel(controller: AddItemViewController)
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem)
     
 }
 
@@ -36,13 +37,18 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done(){
-//        println("Contents of the text field: \(textField.text)")
-//        dismissViewControllerAnimated(true, completion: nil)
-        let item = ChecklistItem()
-        item.text = textField.text
-        item.checked = false
-        
-        delegate?.addItemViewController(self, didFinishAddingItem: item)//doesnot send message if delegate is nil
+        //        println("Contents of the text field: \(textField.text)")
+        //        dismissViewControllerAnimated(true, completion: nil)
+        if let item = itemToEdit {// unwrapping an optional
+            item.text = textField.text
+            delegate?.addItemViewController(self, didFinishEditingItem: item)
+            
+        } else {
+            let item = ChecklistItem()
+            item.text = textField.text
+            item.checked = false
+            delegate?.addItemViewController(self, didFinishAddingItem: item)//doesnot send message if delegate is nil
+        }
     }
     
     // ? says tells swift that you can return nil from this method. Only allowed if ? behind that return type
@@ -59,10 +65,11 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 44
-    
+        
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.text
+            doneBarButton.enabled = true
         }
     }
 }

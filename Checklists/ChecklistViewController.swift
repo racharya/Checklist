@@ -46,7 +46,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         row4item.text = "Eat ice cream"
         row4item.checked = true
         items.append(row4item)
-       
+        
         super.init(coder: aDecoder)
     }
     
@@ -107,17 +107,17 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
         let label = cell.viewWithTag(1001) as! UILabel
         if item.checked {
-           label.text = "√"
+            label.text = "√"
         } else {
-          label.text = " "
-    }
+            label.text = " "
+        }
     }
     
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem){
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
-  
+    
     //implementing delegatge methods
     func addItemViewControllerDidCancel(controller: AddItemViewController) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -132,6 +132,16 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }//end of implementing delegate methods
     
+    
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem){
+        if let index = find(items, item) {
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            if let cell = tableView.cellForRowAtIndexPath(indexPath){
+                configureTextForCell(cell, withChecklistItem:item)
+            }
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //1
         if segue.identifier == "AddItem" {
