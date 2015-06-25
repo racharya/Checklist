@@ -23,6 +23,13 @@ class ChecklistItem: NSObject, NSCoding {
     
     //needed to make the app compile without errors
     required init(coder aDecoder: NSCoder) {
+        text = aDecoder.decodeObjectForKey("Text") as! String
+        checked = aDecoder.decodeBoolForKey("Checked")
+        super.init()
+    }
+    
+    //needed to build the app, keeps compiler happy
+    override init() {
         super.init()
     }
 }
