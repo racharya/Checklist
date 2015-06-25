@@ -93,6 +93,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         //2
         let indexPaths = [indexPath]
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)// removing from tabel view
+        saveChecklistItems()
     }
     
     /*method to toggle the chekmark */
@@ -104,6 +105,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             configureCheckmarkForCell(cell, withChecklistItem: item)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        saveChecklistItems()
     }
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
@@ -133,6 +135,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]//temporary array to hold just one inded path item
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic) //telling table view about this new row
         dismissViewControllerAnimated(true, completion: nil)
+        saveChecklistItems()
     }//end of implementing delegate methods
     
     
@@ -144,6 +147,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
         dismissViewControllerAnimated(true, completion: nil)
+        saveChecklistItems()
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //1
@@ -175,5 +179,19 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func dataFilePath() -> String {
         return documentsDirectory().stringByAppendingPathComponent("Checklists.plist")
     }// end of storing user's data files
+    
+    // Takes the contents of items[] and in two steps converts this to a block of binary data
+    // then writes this data to a file
+    
+    func saveChecklistItems() {
+        //NSMutable meaning it will write itself to file specified by dataFilePath
+        let data = NSMutableData()
+        //NSKeyedArchiver is a form of NSCoder that creates plist files
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(items, forKey: "ChecklistItems")
+        
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath(), atomically: true)
+    }
 }
 
