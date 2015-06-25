@@ -20,4 +20,9 @@ class ChecklistItem: NSObject, NSCoding {
         aCoder.encodeObject(text, forKey: "Text")
         aCoder.encodeBool(checked, forKey: "Checked")
     }
+    
+    //needed to make the app compile without errors
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+    }
 }
