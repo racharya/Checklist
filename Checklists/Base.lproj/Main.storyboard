@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Name of the Checklist-->
+        <!--(Name of the Checklist)-->
         <scene sceneID="jwN-6n-EbF">
             <objects>
                 <tableViewController id="Nun-Mj-fKq" customClass="ChecklistViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                             <outlet property="delegate" destination="Nun-Mj-fKq" id="6zJ-fD-0na"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Name of the Checklist" id="iRT-HU-o9B">
+                    <navigationItem key="navigationItem" title="(Name of the Checklist)" id="iRT-HU-o9B">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="E4J-DK-JJp">
                             <connections>
                                 <segue destination="844-Wf-d8h" kind="presentation" identifier="AddItem" id="y1H-g8-2op"/>
