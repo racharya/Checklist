@@ -41,6 +41,10 @@ class AllListsViewController: UITableViewController {
         cell.textLabel!.text = "List \(indexPath.row)"
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowChecklist", sender: nil)
+    }
 
  
 
