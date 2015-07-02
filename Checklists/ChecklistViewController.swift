@@ -14,6 +14,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     // but it does not actually create that array.
     // At this point, items does not have a value yet.
     var items: [ChecklistItem]
+    var checklist: Checklist!
     
     required init(coder aDecoder: NSCoder) {
         // This instantiates the array. Now items contains a valid array object,
@@ -38,6 +39,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 44
+        title = checklist.name
         // Do any additional setup after loading the view, typically from a nib.
     }
     

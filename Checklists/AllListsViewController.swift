@@ -14,7 +14,7 @@ class AllListsViewController: UITableViewController {
     
     required init(coder aDecoder: NSCoder) {
         lists = [Checklist]() // array to hold checklist objects
-      
+        
         //2: Call super version of init(coder)
         super.init(coder: aDecoder)
         //3: Create a new Checklist object, give name , add to array
@@ -34,12 +34,6 @@ class AllListsViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,9 +62,15 @@ class AllListsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowChecklist", sender: nil)
+        let checklist = lists[indexPath.row]
+        performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowChecklist" {
+            let controller = segue.destinationViewController as! ChecklistViewController
+            controller.checklist = sender as! Checklist
+        }
+    }
     
 }
