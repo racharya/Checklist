@@ -9,7 +9,32 @@
 import UIKit
 
 class AllListsViewController: UITableViewController {
-
+    var lists: [Checklist] // array to hold checklist objects
+    
+    required init(coder aDecoder: NSCoder) {
+    //1: Give lists variable a value
+    lists = [Checklist]()
+    //2: Call super version of init(coder)
+    super.init(coder: aDecoder)
+    //3: Create a new Checklist object, give name , add to array
+    var list = Checklist()
+    list.name = "Birthdays"
+    lists.append(list)
+    
+    //4
+    list = Checklist()
+    list.name = "Groceries"
+    lists.append(list)
+    
+    list = Checklist()
+    list.name = "Cool Apps"
+    lists.append(list)
+    
+    list = Checklist()
+    list.name = "To Do"
+    lists.append(list)
+    
+}
     override func viewDidLoad() {
         super.viewDidLoad()
 
