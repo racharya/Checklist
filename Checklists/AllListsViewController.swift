@@ -78,6 +78,9 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
     }
     
+    // creates the view controller object for Add/Edit Checklist screen and show it on the screen.
+    // This is roughly equi to what a segue would do behind the scenes
+    
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         let navigationController = storyboard!.instantiateViewControllerWithIdentifier("ListNavigationController") as! UINavigationController
         
@@ -127,5 +130,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+   
+   
 }
