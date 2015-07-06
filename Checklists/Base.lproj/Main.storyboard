@@ -27,7 +27,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="√" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc1-Uo-CPX">
                                             <rect key="frame" x="22" y="15" width="18" height="22"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -61,7 +61,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bIa-YS-cUq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="5lN-sc-41f">
                                 <cells>
@@ -76,7 +76,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="ukc-C0-Uhr" eventType="editingDidEndOnExit" id="Wz6-UQ-P4a"/>
-                                                        <outlet property="delegate" destination="ukc-C0-Uhr" id="F8e-Sp-DP8"/>
+                                                        <outlet property="delegate" destination="ukc-C0-Uhr" id="9Ad-se-cKp"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -94,18 +94,19 @@
                     <navigationItem key="navigationItem" title="Add Checklist" id="sUB-Dd-Kr5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xkt-v0-Cjo">
                             <connections>
-                                <action selector="cancel" destination="ukc-C0-Uhr" id="KW9-JE-fnH"/>
+                                <action selector="cancel" destination="ukc-C0-Uhr" id="VMZ-lX-Txy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="hUi-0t-764">
                             <connections>
-                                <action selector="done" destination="ukc-C0-Uhr" id="riS-IG-M9b"/>
+                                <action selector="done" destination="ukc-C0-Uhr" id="niI-I8-0GT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="textField" destination="gd6-Q7-aIP" id="UHv-QE-law"/>
+                        <outlet property="doneBarButton" destination="hUi-0t-764" id="ycy-Tu-IXA"/>
+                        <outlet property="textField" destination="gd6-Q7-aIP" id="eSd-jB-5Ms"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsN-pK-G8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,7 +136,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nJZ-wq-6Kz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="i6N-nJ-XFN">
                                 <cells>
