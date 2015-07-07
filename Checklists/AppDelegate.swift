@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let dataModel = DataModel()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -45,11 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // trying to find all list view controller from within app delegate
     // goal is to saveData when the app terminates
     func saveData() {
-        //window! means force unwrap
-        let navigationController = window!.rootViewController as! UINavigationController
-        //
-        let controller = navigationController.viewControllers[0] as! AllListsViewController
-        controller.saveChecklists()
+       dataModel.saveChecklists()
     }
 
 }
