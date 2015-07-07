@@ -40,7 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    // trying to find all list view controller from within app delegate
+    // goal is to saveData when the app terminates
+    func saveData() {
+        //window! means force unwrap 
+        let navigationController = window!.rootViewController as! UINavigationController
+        let controller = navigationController.viewControllers[0] as! AllListsViewController
+        controller.saveChecklists()
+    }
 
 }
 
