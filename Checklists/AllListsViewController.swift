@@ -13,6 +13,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     var lists: [Checklist]
     
     required init(coder aDecoder: NSCoder) {
+        
         lists = [Checklist]()
         super.init(coder: aDecoder)
         loadChecklists()
