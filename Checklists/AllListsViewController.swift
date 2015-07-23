@@ -52,7 +52,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.delegate = self//view controller makes itself the delegate for the navi controller
+        //view controller makes itself the delegate for the navi controller
+        navigationController?.delegate = self// accessing view controller's navigation controller property
         let index = NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
         
         if index != -1 {
