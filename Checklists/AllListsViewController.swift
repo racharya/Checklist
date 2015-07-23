@@ -50,6 +50,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self//view controller makes itself the delegate for the navi controller
+        let index = NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+        
+        if index != -1 {
+            let checklist = dataModel.lists[index]
+            performSegueWithIdentifier("ShowChecklist", sender: checklist)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -142,9 +153,9 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
-    // This method is called whenever the navigation controller slides a new screen
+    // This method is called whenever the navigation controller slides to a new screen
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-        if viewController === self {
+        if viewController === self {// 3 equal signs checks if two variables refer to the exact same object, more correct than 2 equals
             NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "ChecklistIndex")
         }
     }
