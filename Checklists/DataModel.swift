@@ -14,6 +14,7 @@ class DataModel {
     
     init() { //as soon as DataModel object is created, it will attempt to load Checklists.plist
         loadChecklists()
+        registerDefaults()
     }
     //load/save code
     func documentsDirectory() -> String {
@@ -42,4 +43,12 @@ class DataModel {
             }
         }
     }// end of load/save code
+    
+    func registerDefaults() {
+        //creates a new dictionary and adds the value -1 for the key ChecklistIndex
+        let dictionary = ["ChecklistIndex": -1]
+        
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+    }
+    
 }
