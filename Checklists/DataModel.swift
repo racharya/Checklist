@@ -51,4 +51,13 @@ class DataModel {
         NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
     }
     
+    var indexOfSelectedChecklist: Int {
+        get {
+            return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+        }
+        
+        set{
+            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+        }
+    }
 }
