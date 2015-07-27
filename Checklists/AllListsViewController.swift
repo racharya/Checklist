@@ -54,7 +54,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         super.viewDidAppear(animated)
         //view controller makes itself the delegate for the navi controller
         navigationController?.delegate = self// accessing view controller's navigation controller property
-        let index = NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+        let index = dataModel.indexOfSelectedChecklist
         
         if index != -1 {
             let checklist = dataModel.lists[index]
@@ -90,7 +90,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //store the index of the selected row into NSUserDefaults under the key "ChecklistIndex"
-        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey:"ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
         let checklist = dataModel.lists[indexPath.row]
         performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
@@ -157,7 +157,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     // This method is called whenever the navigation controller slides to a new screen
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         if viewController === self {// 3 equal signs checks if two variables refer to the exact same object, more correct than 2 equals
-            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "ChecklistIndex")
+            dataModel.indexOfSelectedChecklist = -1
         }
     }
 }
