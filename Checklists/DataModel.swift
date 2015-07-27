@@ -52,11 +52,11 @@ class DataModel {
     }
     
     var indexOfSelectedChecklist: Int {
-        get {
+        get {// when app reads the value
             return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
         }
         
-        set{
+        set{// when app writes a value
             NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
         }
     }
