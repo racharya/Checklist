@@ -46,7 +46,7 @@ class DataModel {
     
     func registerDefaults() {
         //creates a new dictionary and adds the value -1 for the key ChecklistIndex
-        let dictionary = ["ChecklistIndex": -1]
+        let dictionary = ["ChecklistIndex": -1, "FirstTime": true]
         
         NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
     }
@@ -58,6 +58,7 @@ class DataModel {
         
         set{// when app writes a value
             NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
 }
