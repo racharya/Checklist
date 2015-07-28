@@ -97,7 +97,7 @@
                                 <action selector="cancel" destination="ukc-C0-Uhr" id="VMZ-lX-Txy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hUi-0t-764">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="hUi-0t-764">
                             <connections>
                                 <action selector="done" destination="ukc-C0-Uhr" id="niI-I8-0GT"/>
                             </connections>
