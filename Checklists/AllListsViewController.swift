@@ -160,4 +160,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             dataModel.indexOfSelectedChecklist = -1
         }
     }
+    
+    
 }
