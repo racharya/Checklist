@@ -14,10 +14,10 @@ protocol ListDetailViewControllerDelegate: class {
     func listDetailViewController(controller: ListDetailViewController, didFinishEditingChecklist checklist: Checklist)
 }
 
-class ListDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
     
+    var iconName = "Folder" 
     @IBOutlet weak var iconImageView: UIImageView!
-
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
@@ -33,7 +33,9 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Checklist"
             textField.text = checklist.name
             doneBarButton.enabled = true
+            iconName = checklist.iconName
         }
+        iconImageView.image = UIImage(named: iconName)  
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,9 +50,11 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let checklist = checklistToEdit {
             checklist.name = textField.text
+            checklist.iconName = iconName
             delegate?.listDetailViewController(self, didFinishEditingChecklist: checklist)
         } else {
             let checklist = Checklist(name: textField.text)
+            checklist.iconName = iconName
             delegate?.listDetailViewController(self, didFinishAddingChecklist: checklist)
         }
     }
@@ -67,8 +71,22 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let oldText: NSString = textField.text
         let newText: NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
-        
         doneBarButton.enabled = (newText.length > 0)
         return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PickIcon" {
+            let controller = segue.destinationViewController as! IconPickerViewController
+            controller.delegate = self
+        }
+    }
+    
+    func iconPicker(picker: IconPickerViewController, didPickIcon iconName: String) {
+        self.iconName = iconName
+        iconImageView.image = UIImage(named: iconName)
+        //dont call dismissViewController() here because Icon Picker is on the navigation stack
+        //because of the segue type(we chose "show" instead of "present modally") as it pushes on the navi. stack
+        navigationController?.popViewControllerAnimated(true)
     }
 }
