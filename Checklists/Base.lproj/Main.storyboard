@@ -19,8 +19,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FS9-hq-P3s" id="7Vb-ZM-SqS">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-yR-vdw">
-                                            <rect key="frame" x="48" y="12" width="571" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-yR-vdw">
+                                            <rect key="frame" x="40" y="18" width="485" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -32,6 +32,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OG8-yR-vdw" firstAttribute="leading" secondItem="7Vb-ZM-SqS" secondAttribute="leading" constant="40" id="HDJ-r9-j3J"/>
+                                        <constraint firstAttribute="centerY" secondItem="OG8-yR-vdw" secondAttribute="centerY" id="UJT-ts-gD8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="OG8-yR-vdw" secondAttribute="trailing" id="X1k-Xb-LLZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="844-Wf-d8h" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="8Yz-6w-DdC"/>
