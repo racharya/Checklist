@@ -23,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //following 2 lines of code is asking user for permission for local notifications
         let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+//        //creating a new local notification
+//        let date = NSDate(timeIntervalSinceNow: 10)//fires 10s after app has started
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = date
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.alertBody = "I am a local notification"
+//        localNotification.soundName = UILocalNotificationDefaultSoundName
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         return true
     }
     
@@ -54,6 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveData() {
         dataModel.saveChecklists()
     }
-
+    
+    func application(application:UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+        println("didReceiveLocalNotification \(notification)")
+    }
 }
 
