@@ -81,6 +81,7 @@ class DataModel {
             checklist1.name.localizedStandardCompare(checklist2.name) == NSComparisonResult.OrderedAscending})
     }
     
+    // can call this method without having a reference to an object of the class this method belogns to
     class func nextChecklistItemID() -> Int {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let itemID = userDefaults.integerForKey("ChecklistItemID")
