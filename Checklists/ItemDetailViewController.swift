@@ -202,4 +202,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         dueDate = datePicker.date
         updateDueDateLabel()
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        hideDatePicker()
+    }
 }
