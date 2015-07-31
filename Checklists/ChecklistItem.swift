@@ -49,6 +49,11 @@ class ChecklistItem: NSObject, NSCoding {
         itemID = DataModel.nextChecklistItemID()
         super.init()
     }
-    
+   
+    func scheduleNotification() {
+        if shouldRemind && dueDate.compare(NSDate()) != NSComparisonResult.OrderedAscending {
+            println("We should schedule a notification!")
+        }
+    }
     
 }
