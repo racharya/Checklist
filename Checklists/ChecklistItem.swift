@@ -83,4 +83,12 @@ class ChecklistItem: NSObject, NSCoding {
         return nil
     }
     
+    deinit {
+        let existingNotification = notificationForThisItem()
+        if let notification = existingNotification {
+            println("Removing existing notification \(notification)")
+            UIApplication.sharedApplication().cancelLocalNotification(notification)
+        }
+    }
+    
 }
