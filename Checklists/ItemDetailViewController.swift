@@ -97,6 +97,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     new row below the Due Date cell. This new row will contain the UIDatePicker component */
     func showDatePicker() {
         datePickerVisible = true
+        
         let indexPathDateRow = NSIndexPath(forRow: 1, inSection: 1)
         let indexPathDatePicker = NSIndexPath(forRow: 2, inSection: 1)
         if let dateCell = tableView.cellForRowAtIndexPath(indexPathDateRow) {
