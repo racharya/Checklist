@@ -95,8 +95,21 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     new row below the Due Date cell. This new row will contain the UIDatePicker component */
     func showDatePicker() {
         datePickerVisible = true
+        let indexPathDateRow = NSIndexPath(forRow: 1, inSection: 1)
         let indexPathDatePicker = NSIndexPath(forRow: 2, inSection: 1)
+        if let dateCell = tableView.cellForRowAtIndexPath(indexPathDateRow) {
+            dateCell.detailTextLabel!.textColor = dateCell.detailTextLabel!.tintColor
+        }
+        tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([indexPathDatePicker], withRowAnimation: .Fade)
+        tableView.reloadRowsAtIndexPaths([indexPathDateRow], withRowAnimation: .None)
+        tableView.beginUpdates()
+        
+        //locates UIDatePicker componet in the new cell and gives it the proper date
+        if let pickerCell = tableView.cellForRowAtIndexPath(indexPathDatePicker) {
+            let datePicker = pickerCell.viewWithTag(100) as! UIDatePicker
+            datePicker.setDate(dueDate, animated: false)
+        }
     }
     
     //overriding the data source for a static table view 
