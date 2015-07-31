@@ -189,7 +189,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         if indexPath.section == 1 && indexPath.row == 1 {
-            showDatePicker()
+            if !datePickerVisible {
+                showDatePicker()
+            } else {
+            hideDatePicker()
+            }
         }
     }
     
