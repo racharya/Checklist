@@ -264,6 +264,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cys-VD-WOX">
                                                     <rect key="frame" x="543" y="8" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindToggled:" destination="vVv-CE-Sii" eventType="valueChanged" id="9fM-4T-YkY"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
