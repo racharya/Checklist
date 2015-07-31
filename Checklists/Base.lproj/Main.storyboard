@@ -316,6 +316,7 @@
                     <connections>
                         <outlet property="doneBarButton" destination="FFC-Ki-877" id="eKQ-Rg-wSG"/>
                         <outlet property="dueDateLabel" destination="eS4-8P-IDw" id="5QC-lL-Ea5"/>
+                        <outlet property="shouldRemindSwitch" destination="cys-VD-WOX" id="cn7-zl-q39"/>
                         <outlet property="textField" destination="AZZ-QI-3qi" id="pcn-nv-DeJ"/>
                     </connections>
                 </tableViewController>
