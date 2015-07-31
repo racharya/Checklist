@@ -208,4 +208,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         hideDatePicker()
     }
+    
+    @IBAction func shouldRemindToggled(switchControl: UISwitch) {
+        textField.resignFirstResponder()
+        
+        if switchControl.on {
+            let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        }
+    }
 }
