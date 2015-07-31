@@ -76,7 +76,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        return nil
+        if indexPath.section == 1 && indexPath.row == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -138,6 +142,16 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             return 217
         } else {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    //calls showDatePicker() when the indexPath indicates that the user has tapped the Due Date row
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        textField.resignFirstResponder()
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            showDatePicker()
         }
     }
 }
