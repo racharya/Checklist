@@ -109,7 +109,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             //2: Ask table view if it already has date picker cell, IF NOT create a new one
             var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("DatePickerCell") as? UITableViewCell
             if cell == nil {
-                cell == UITableViewCell(style: .Default, reuseIdentifier: "DatePickerCell")
+                cell = UITableViewCell(style: .Default, reuseIdentifier: "DatePickerCell")
                 cell.selectionStyle = .None
                 
                 //3: create a new UIDatePicker component, tag 100
@@ -118,7 +118,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
                 cell.contentView.addSubview(datePicker)
                 
                 //4: tell datePicker to call dateChanged method everytime user picks a new date
-                datePicker.addTarget(self, action: Selector("dateChanged"), forControlEvents:.ValueChanged)
+                datePicker.addTarget(self, action: Selector("dateChanged:"), forControlEvents:.ValueChanged)
             }
             return cell
             
@@ -126,6 +126,14 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         } else {
             return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
         }
+    }
+    
+    // declaring var(2nd param) acts as a local variable and can assign it new values
+    override func tableView(tableView: UITableView, var indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+        if indexPath.section == 1 && indexPath.row == 2 {
+            indexPath = NSIndexPath(forRow: 0, inSection: indexPath.section)
+        }
+        return super.tableView(tableView, indentationLevelForRowAtIndexPath: indexPath)
     }
     
     //if datepicker is visible then section 1 has 3 rows, if not simply pass through to the original data source
@@ -153,5 +161,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         if indexPath.section == 1 && indexPath.row == 1 {
             showDatePicker()
         }
+    }
+    
+    //updates the dueDate instance variable with the new date and then updates the text on the Due Date label
+    func dateChanged(datePicker: UIDatePicker) {
+        dueDate = datePicker.date
+        updateDueDateLabel()
     }
 }
