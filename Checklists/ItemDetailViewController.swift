@@ -103,12 +103,29 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([indexPathDatePicker], withRowAnimation: .Fade)
         tableView.reloadRowsAtIndexPaths([indexPathDateRow], withRowAnimation: .None)
-        tableView.beginUpdates()
+        tableView.endUpdates()
         
         //locates UIDatePicker componet in the new cell and gives it the proper date
         if let pickerCell = tableView.cellForRowAtIndexPath(indexPathDatePicker) {
             let datePicker = pickerCell.viewWithTag(100) as! UIDatePicker
             datePicker.setDate(dueDate, animated: false)
+        }
+    }
+    
+    func hideDatePicker() {
+        if datePickerVisible {
+            datePickerVisible = false
+            
+            let indexPathDateRow = NSIndexPath(forRow: 1, inSection: 1)
+            let indexPathDatePicker = NSIndexPath(forRow: 2, inSection: 1)
+            
+            if let cell = tableView.cellForRowAtIndexPath(indexPathDateRow) {
+                cell.detailTextLabel!.textColor = UIColor(white: 0, alpha: 0.5)
+            }
+            tableView.beginUpdates()
+            tableView.reloadRowsAtIndexPaths([indexPathDateRow], withRowAnimation: .None)
+            tableView.deleteRowsAtIndexPaths([indexPathDatePicker], withRowAnimation: .Fade)
+            tableView.endUpdates()
         }
     }
     
